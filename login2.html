@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="login(event)">
+        <input type="text" name="" id="u_name" placeholder="Enter the username" required><br><br>
+        <input type="password" name="" id="p_word" placeholder="Enter the password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function login(event){
+            event.preventDefault()
+            let storageName=localStorage.getItem("name")
+            let storagePassword=localStorage.getItem("password")
+           
+            let inputu_name=document.getElementById("u_name")
+            let inputp_word=document.getElementById("p_word")
+
+            if((inputu_name.value === storageName) && (inputp_word.value === storagePassword)){
+                if(screen > 600){
+                    alert("Login Successfully")
+                    localStorage.setItem("islogged","true")
+                    window.location.href="home3.html"
+                }else{
+                    alert("Not opened in Mobiles")
+                }
+            }else{
+                alert("Enter the correct Username/Password")
+            }
+
+            inputu_name=""
+            inputp_word=""
+            
+        }
+
+    </script>
+
+</body>
+</html>
